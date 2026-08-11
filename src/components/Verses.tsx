@@ -14,7 +14,7 @@ export const Verses: React.FC<VersesProps> = ({ onProceed }) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.8, ease: 'easeInOut' }}
-      className="fixed inset-0 z-40 w-full h-[100dvh] bg-[#FDFBF7] flex flex-col justify-between items-center overflow-hidden select-none"
+      className="fixed inset-0 z-60 w-full h-[100dvh] bg-[#FDFBF7] flex flex-col justify-between items-center overflow-hidden select-none"
     >
       {/* Top Mandala SVG */}
       <motion.div

@@ -22,42 +22,87 @@ export function App() {
     } else {
       document.body.style.overflow = '';
     }
+
     return () => {
       document.body.style.overflow = '';
     };
   }, [versesProceeded]);
 
   return (
-    <div className="min-h-screen bg-[#FDFBF7] font-cormorant selection:bg-[#B8923F]/20 selection:text-[#4D300E] overflow-x-hidden w-full flex flex-col justify-start items-center">
+    <div
+      className="
+        min-h-screen
+        bg-[#FDFBF7]
+        font-cormorant
+        selection:bg-[#B8923F]/20
+        selection:text-[#4D300E]
+        overflow-x-hidden
+        w-full
+        flex
+        flex-col
+        justify-start
+        items-center
+      "
+    >
       {/* Background Audio Player */}
       <AudioPlayer shouldPlay={envelopeOpened} />
 
-      {/* Envelope Overlay */}
-      <Envelope onOpen={() => setEnvelopeOpened(true)} />
+      {/* Envelope */}
+      {!versesProceeded && (
+        <Envelope
+          onOpen={() => {
+            setEnvelopeOpened(true);
+          }}
+        />
+      )}
 
-      {/* Quran Verses Splash Screen Overlay */}
+      {/* Quran Verses Splash Screen */}
       <AnimatePresence>
         {envelopeOpened && !versesProceeded && (
-          <Verses onProceed={() => setVersesProceeded(true)} />
+          <Verses
+            onProceed={() => {
+              setVersesProceeded(true);
+            }}
+          />
         )}
       </AnimatePresence>
 
+      {/* Main Invitation */}
       {envelopeOpened && versesProceeded && (
         <main className="w-full flex flex-col items-center">
           <HeroSection />
 
-          {/* Nikkah & Reception sections side-by-side on desktop/tablet, stacked on mobile */}
-          <div className="w-full max-w-5xl mx-auto flex flex-col md:flex-row md:items-stretch md:justify-center gap-4 md:gap-8 lg:gap-12 px-4 bg-[#FDFBF7]">
+          {/* Nikkah & Reception */}
+          <div
+            className="
+              w-full
+              max-w-5xl
+              mx-auto
+              flex
+              flex-col
+              md:flex-row
+              md:items-stretch
+              md:justify-center
+              gap-4
+              md:gap-8
+              lg:gap-12
+              px-4
+              bg-[#FDFBF7]
+            "
+          >
             <NikkahEventSection />
             <ReceptionEventSection />
           </div>
 
           <InvitationSection />
-          <CountdownSection />
-          <RSVPSection />
-          <FooterSection />
-        </main>)}
 
+          <CountdownSection />
+
+          <RSVPSection />
+
+          <FooterSection />
+        </main>
+      )}
     </div>
   );
 }
