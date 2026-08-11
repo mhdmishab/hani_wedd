@@ -10,7 +10,7 @@ export const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
   const [isRemoved, setIsRemoved] = useState(false);
 
   /*
-   * Keep scrolling disabled while the envelope / verses
+   * Keep scrolling locked while envelope/verses
    * experience is active.
    */
   useEffect(() => {
@@ -22,32 +22,33 @@ export const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
   }, []);
 
   const handleOpen = () => {
-    // Prevent multiple clicks
     if (isOpen) return;
 
     /*
-     * Start envelope animation
+     * Start envelope animation.
      */
     setIsOpen(true);
 
     /*
      * IMPORTANT:
      *
-     * Tell App immediately that the envelope was opened.
+     * Tell App immediately.
      *
-     * This makes the Verses component appear immediately,
-     * while the envelope is STILL opening underneath it.
+     * Verses will appear NOW,
+     * while envelope is still opening.
      */
     onOpen();
 
     /*
-     * Envelope animation is approximately 3.8 seconds.
+     * Envelope animation:
+     * 4.5 seconds
      *
-     * Remove it only after the animation has finished.
+     * Give it a little extra time before
+     * removing the component.
      */
     setTimeout(() => {
       setIsRemoved(true);
-    }, 4000);
+    }, 4700);
   };
 
   if (isRemoved) {
@@ -72,18 +73,21 @@ export const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
             backdrop-blur-md
           "
           onClick={handleOpen}
-          initial={{ opacity: 1 }}
+          initial={{
+            opacity: 1,
+          }}
           exit={{
             opacity: 0,
           }}
           transition={{
-            duration: 0.8,
+            duration: 0.6,
             ease: 'easeInOut',
           }}
         >
-          {/* 
-            Envelope Frame
-          */}
+          {/* =====================================================
+              ENVELOPE FRAME
+              ===================================================== */}
+
           <div
             className="
               relative
@@ -102,9 +106,8 @@ export const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
               z-10
             "
           >
-            {/* 
-              Very subtle inner vignette.
-            */}
+            {/* Inner vignette */}
+
             <div
               className="
                 absolute
@@ -116,7 +119,7 @@ export const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
             />
 
             {/* =====================================================
-                TOP FLAP
+                TOP COVER
                 ===================================================== */}
 
             <motion.img
@@ -134,36 +137,27 @@ export const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
               "
               initial={{
                 y: 0,
-                opacity: 1,
               }}
               animate={
                 isOpen
                   ? {
                       /*
-                       * Slowly move the top flap upward.
+                       * Only movement.
+                       * NO opacity.
                        */
-                      y: '-105%',
-                      opacity: 0,
+                      y: '-115%',
                     }
                   : {
                       y: 0,
-                      opacity: 1,
                     }
               }
               transition={{
-                /*
-                 * Slow cinematic movement
-                 */
-                duration: 3.8,
+                duration: 4.5,
 
                 /*
-                 * Smooth:
-                 *
-                 * - gentle beginning
-                 * - natural movement
-                 * - soft ending
+                 * Slow start + smooth movement + gentle finish.
                  */
-                ease: [0.22, 1, 0.36, 1],
+                ease: [0.16, 1, 0.3, 1],
               }}
             />
 
@@ -186,33 +180,23 @@ export const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
               "
               initial={{
                 y: 0,
-                opacity: 1,
               }}
               animate={
                 isOpen
                   ? {
                       /*
-                       * Slowly move the bottom cover downward.
+                       * Only movement.
+                       * NO opacity.
                        */
-                      y: '105%',
-                      opacity: 0,
+                      y: '115%',
                     }
                   : {
                       y: 0,
-                      opacity: 1,
                     }
               }
               transition={{
-                /*
-                 * Same timing as top flap
-                 * so both move together.
-                 */
-                duration: 3.8,
-
-                /*
-                 * Smooth cinematic easing
-                 */
-                ease: [0.22, 1, 0.36, 1],
+                duration: 4.5,
+                ease: [0.16, 1, 0.3, 1],
               }}
             />
           </div>
@@ -221,3 +205,5 @@ export const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
     </AnimatePresence>
   );
 };
+
+export default Envelope;

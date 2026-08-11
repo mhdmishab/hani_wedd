@@ -15,7 +15,10 @@ export function App() {
   const [envelopeOpened, setEnvelopeOpened] = useState(false);
   const [versesProceeded, setVersesProceeded] = useState(false);
 
-  // Lock body scrolling until the user proceeds past the Verses screen
+  /*
+   * Lock scrolling until the user proceeds
+   * from the Verses screen.
+   */
   useEffect(() => {
     if (!versesProceeded) {
       document.body.style.overflow = 'hidden';
@@ -44,19 +47,33 @@ export function App() {
         items-center
       "
     >
-      {/* Background Audio Player */}
+      {/* =====================================================
+          AUDIO
+          ===================================================== */}
+
       <AudioPlayer shouldPlay={envelopeOpened} />
 
-      {/* Envelope */}
+      {/* =====================================================
+          ENVELOPE
+          ===================================================== */}
+
       {!versesProceeded && (
         <Envelope
           onOpen={() => {
+            /*
+             * IMPORTANT:
+             * This happens immediately when the envelope
+             * is clicked.
+             */
             setEnvelopeOpened(true);
           }}
         />
       )}
 
-      {/* Quran Verses Splash Screen */}
+      {/* =====================================================
+          VERSES
+          ===================================================== */}
+
       <AnimatePresence>
         {envelopeOpened && !versesProceeded && (
           <Verses
@@ -67,12 +84,14 @@ export function App() {
         )}
       </AnimatePresence>
 
-      {/* Main Invitation */}
+      {/* =====================================================
+          MAIN INVITATION
+          ===================================================== */}
+
       {envelopeOpened && versesProceeded && (
         <main className="w-full flex flex-col items-center">
           <HeroSection />
 
-          {/* Nikkah & Reception */}
           <div
             className="
               w-full
