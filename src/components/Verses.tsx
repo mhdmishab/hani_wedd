@@ -125,7 +125,7 @@ export const Verses: React.FC<VersesProps> = ({ onProceed }) => {
             absolute
             left-1/2
             top-0
-            w-[300px]
+            w-[240px]
             h-[600px]
             max-w-none
             -translate-x-1/2
