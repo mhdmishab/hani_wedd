@@ -13,7 +13,6 @@ export const Verses: React.FC<VersesProps> = ({ onProceed }) => {
        * IMPORTANT:
        *
        * Do NOT fade the entire Verses screen.
-       *
        * It must appear immediately when the envelope
        * starts opening.
        */
@@ -46,11 +45,6 @@ export const Verses: React.FC<VersesProps> = ({ onProceed }) => {
     >
       {/* =====================================================
           BACKGROUND
-          
-          This is separate from the text and mandalas.
-          
-          It starts transparent so the envelope can still
-          be seen underneath.
           ===================================================== */}
 
       <motion.div
@@ -67,74 +61,83 @@ export const Verses: React.FC<VersesProps> = ({ onProceed }) => {
           opacity: 1,
         }}
         transition={{
-          /*
-           * Start fading almost immediately.
-           */
           delay: 0.2,
-
-          /*
-           * Slowly cover the envelope.
-           */
           duration: 3.2,
-
           ease: 'easeInOut',
         }}
       />
 
       {/* =====================================================
-          TOP MANDALA
-          ===================================================== */}
+          TOP ROTATING MANDALA
+          
+          The PNG is a COMPLETE circular mandala.
 
-      <motion.div
-        initial={{
-          opacity: 0,
-          y: -15,
-        }}
-        animate={{
-          opacity: 0.9,
-          y: 0,
-        }}
-        transition={{
-          /*
-           * Starts almost immediately.
-           */
-          duration: 1.2,
-          delay: 0.15,
-          ease: 'easeOut',
-        }}
+          Its center is positioned exactly at the top
+          edge of the screen.
+
+          Therefore only the upper half is visible.
+          The rest is clipped outside the screen.
+      ===================================================== */}
+
+      <div
         className="
-          relative
-          z-10
+          absolute
+          top-0
+          left-0
           w-full
-          flex
-          justify-center
-          -mt-6
-          md:-mt-10
-          lg:-mt-12
+          h-[160px]
           overflow-hidden
+          pointer-events-none
+          z-10
         "
-        style={{
-          height: '160px',
-        }}
       >
         <motion.img
-          src="/images/envelope/top_mandala.svg"
+          src="/images/envelope/full_mandala.png"
           alt="Top Mandala"
+          initial={{
+            opacity: 0,
+            scale: 0.98,
+          }}
+          animate={{
+            opacity: 0.9,
+            scale: 1,
+            rotate: 360,
+          }}
+          transition={{
+            opacity: {
+              duration: 1.2,
+              delay: 0.15,
+              ease: 'easeOut',
+            },
+            scale: {
+              duration: 1.2,
+              delay: 0.15,
+              ease: 'easeOut',
+            },
+            rotate: {
+              duration: 50,
+              delay: 1.2,
+              repeat: Infinity,
+              ease: 'linear',
+            },
+          }}
           className="
-            w-full
-            max-w-[280px]
-            xs:max-w-[320px]
-            md:max-w-[400px]
-            lg:max-w-[480px]
-            xl:max-w-[550px]
-            h-auto
+            absolute
+            left-1/2
+            top-0
+            w-[300px]
+            h-[600px]
+            max-w-none
+            -translate-x-1/2
+            -translate-y-1/2
             object-contain
           "
+          draggable={false}
           onError={(e) => {
             e.currentTarget.style.display = 'none';
           }}
         />
-      </motion.div>
+      </div>
 
       {/* =====================================================
           CENTER VERSE CONTENT
@@ -143,17 +146,18 @@ export const Verses: React.FC<VersesProps> = ({ onProceed }) => {
       <div
         className="
           relative
-          z-10
+          z-20
           flex-1
           flex
           flex-col
           justify-center
           items-center
-          max-w-[340px]
+          max-w-[600px]
           text-center
           gap-5
           xs:gap-7
           my-auto
+          px-4
         "
       >
         {/* Quran Verse */}
@@ -168,9 +172,6 @@ export const Verses: React.FC<VersesProps> = ({ onProceed }) => {
             y: 0,
           }}
           transition={{
-            /*
-             * Verse starts almost immediately.
-             */
             duration: 1.1,
             delay: 0.25,
             ease: 'easeOut',
@@ -220,55 +221,76 @@ export const Verses: React.FC<VersesProps> = ({ onProceed }) => {
       </div>
 
       {/* =====================================================
-          BOTTOM MANDALA
-          ===================================================== */}
+          BOTTOM ROTATING MANDALA
+          
+          Same COMPLETE PNG is reused.
 
-      <motion.div
-        initial={{
-          opacity: 0,
-          y: 15,
-        }}
-        animate={{
-          opacity: 0.9,
-          y: 0,
-        }}
-        transition={{
-          /*
-           * Starts almost immediately.
-           */
-          duration: 1.2,
-          delay: 0.15,
-          ease: 'easeOut',
-        }}
+          The center of the PNG is positioned at the
+          bottom edge of the screen.
+
+          Only the upper half of the circle is visible
+          inside the screen.
+      ===================================================== */}
+
+      <div
         className="
-          relative
-          z-10
+          absolute
+          bottom-0
+          left-0
           w-full
-          -mb-6
-          md:-mb-10
-          lg:-mb-16
-          xl:-mb-20
+          h-[600px]
+          overflow-hidden
+          pointer-events-none
+          z-10
         "
-        style={{
-          height: '310px',
-        }}
       >
         <motion.img
-          src="/images/envelope/bottom_mandala.svg"
+          src="/images/envelope/full_mandala.png"
           alt="Bottom Mandala"
+          initial={{
+            opacity: 0,
+            scale: 0.98,
+          }}
+          animate={{
+            opacity: 0.9,
+            scale: 1,
+            rotate: 360,
+          }}
+          transition={{
+            opacity: {
+              duration: 1.2,
+              delay: 0.15,
+              ease: 'easeOut',
+            },
+            scale: {
+              duration: 1.2,
+              delay: 0.15,
+              ease: 'easeOut',
+            },
+            rotate: {
+              duration: 50,
+              delay: 1.2,
+              repeat: Infinity,
+              ease: 'linear',
+            },
+          }}
           className="
+            absolute
+            left-1/2
+            bottom-0
             w-full
-            h-auto
-            md:max-w-[900px]
-            lg:max-w-[1200px]
-            xl:max-w-[1400px]
-            mx-auto
+            h-[600px]
+            max-w-full
+            -translate-x-1/2
+            translate-y-1/2
+            object-contain
           "
+          draggable={false}
           onError={(e) => {
             e.currentTarget.style.display = 'none';
           }}
         />
-      </motion.div>
+      </div>
     </motion.section>
   );
 };
