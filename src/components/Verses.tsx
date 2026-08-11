@@ -146,11 +146,12 @@ export const Verses: React.FC<VersesProps> = ({ onProceed }) => {
       <div
         className="
           relative
+          top-[220px]
           z-20
           flex-1
           flex
           flex-col
-          justify-center
+          justify-start
           items-center
           max-w-[600px]
           text-center
@@ -238,7 +239,7 @@ export const Verses: React.FC<VersesProps> = ({ onProceed }) => {
           bottom-0
           left-0
           w-full
-          h-[600px]
+          h-[900px]
           overflow-hidden
           pointer-events-none
           z-10
@@ -279,7 +280,7 @@ export const Verses: React.FC<VersesProps> = ({ onProceed }) => {
             left-1/2
             bottom-0
             w-full
-            h-[600px]
+            h-[900px]
             max-w-full
             -translate-x-1/2
             translate-y-1/2
