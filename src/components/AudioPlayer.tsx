@@ -41,7 +41,7 @@ export const AudioPlayer = ({ shouldPlay = false }: { shouldPlay?: boolean }) =>
       <audio 
         ref={audioRef} 
         loop
-        src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=soft-piano-and-strings-112702.mp3"
+        src="/audio/public_nasheed.mp3"
       />
       
       <motion.button
