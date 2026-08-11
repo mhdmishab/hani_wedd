@@ -51,7 +51,7 @@ export function App() {
           AUDIO
           ===================================================== */}
 
-      <AudioPlayer shouldPlay={envelopeOpened} />
+      {envelopeOpened && <AudioPlayer shouldPlay={envelopeOpened} />}
 
       {/* =====================================================
           ENVELOPE
