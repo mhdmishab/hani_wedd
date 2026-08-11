@@ -36,7 +36,7 @@ export const HeroSection: React.FC = () => {
       </motion.div>
  
       {/* Main Content inside the Frame - Snug & tight around the frame */}
-      <div className="z-10 my-auto flex flex-col items-center justify-center w-full max-w-[300px] text-center py-1 gap-4 xs:gap-6 sm:gap-7 select-none">
+      <div className="z-10 my-auto flex flex-col items-center justify-center w-full max-w-[300px] text-center py-1 gap-12 xs:gap-13 sm:gap-15 select-none">
         
         {/* Top Blessing Header */}
         <motion.div 
