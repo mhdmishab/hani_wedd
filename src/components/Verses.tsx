@@ -21,13 +21,13 @@ export const Verses: React.FC<VersesProps> = ({ onProceed }) => {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 0.9, y: 0 }}
         transition={{ duration: 1, delay: 0.2 }}
-        className="w-full flex justify-center -mt-6 overflow-hidden"
+        className="w-full flex justify-center -mt-6 md:-mt-10 lg:-mt-12 overflow-hidden"
         style={{ height: '160px' }}
       >
         <motion.img
           src="/images/envelope/top_mandala.svg"
           alt="Top Mandala"
-          className="w-full max-w-[280px] xs:max-w-[320px] h-auto object-contain"
+          className="w-full max-w-[280px] xs:max-w-[320px] md:max-w-[400px] lg:max-w-[480px] xl:max-w-[550px] h-auto object-contain"
           onError={(e) => {
             e.currentTarget.style.display = 'none';
           }}
@@ -63,13 +63,13 @@ export const Verses: React.FC<VersesProps> = ({ onProceed }) => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 0.9, y: 0 }}
         transition={{ duration: 1, delay: 0.2 }}
-        className="w-full -mb-6"
+        className="w-full -mb-6 md:-mb-10 lg:-mb-16 xl:-mb-20"
         style={{ height: '310px' }}
       >
         <motion.img
           src="/images/envelope/bottom_mandala.svg"
           alt="Bottom Mandala"
-          className="w-full h-auto"
+          className="w-full h-auto  md:max-w-[900px] lg:max-w-[1200px] xl:max-w-[1400px] mx-auto"
           onError={(e) => {
             e.currentTarget.style.display = 'none';
           }}
