@@ -146,7 +146,7 @@ export const Verses: React.FC<VersesProps> = ({ onProceed }) => {
       <div
         className="
           relative
-          top-[220px]
+          top-[170px]
           z-20
           flex-1
           flex
