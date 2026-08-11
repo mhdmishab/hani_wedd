@@ -42,21 +42,22 @@ export function App() {
         )}
       </AnimatePresence>
 
-      <main className="w-full flex flex-col items-center gap-8 xs:gap-12 sm:gap-16">
-        <HeroSection />
-        
-        {/* Nikkah & Reception sections side-by-side on desktop/tablet, stacked on mobile */}
-        <div className="w-full max-w-5xl mx-auto flex flex-col md:flex-row md:items-stretch md:justify-center gap-4 md:gap-8 lg:gap-12 px-4 bg-[#FDFBF7]">
-          <NikkahEventSection />
-          <ReceptionEventSection />
-        </div>
-        
-        <InvitationSection />
-        <CountdownSection />
-        <RSVPSection />
-      </main>
-      
-      <FooterSection />
+      {envelopeOpened && versesProceeded && (
+        <main className="w-full flex flex-col items-center gap-8 xs:gap-12 sm:gap-16">
+          <HeroSection />
+
+          {/* Nikkah & Reception sections side-by-side on desktop/tablet, stacked on mobile */}
+          <div className="w-full max-w-5xl mx-auto flex flex-col md:flex-row md:items-stretch md:justify-center gap-4 md:gap-8 lg:gap-12 px-4 bg-[#FDFBF7]">
+            <NikkahEventSection />
+            <ReceptionEventSection />
+          </div>
+
+          <InvitationSection />
+          <CountdownSection />
+          <RSVPSection />
+          <FooterSection />
+        </main>)}
+
     </div>
   );
 }
