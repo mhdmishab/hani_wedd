@@ -12,7 +12,7 @@ export const HeroSection: React.FC = () => {
   return (
     <section 
       id="hero"
-      className="relative w-full min-h-[640px] h-[100vh] max-h-[820px] flex flex-col items-center justify-between py-8 px-4 overflow-hidden bg-[#FDFBF7]"
+      className="relative w-full min-h-[560px] sm:min-h-[640px] h-[100vh] max-h-[820px] flex flex-col items-center justify-between py-4 xs:py-6 sm:py-8 px-4 overflow-hidden bg-[#FDFBF7]"
       style={{
         background: 'radial-gradient(55% 55% at 50% 50%, rgba(253, 202, 133, 0) 0%, rgba(253, 202, 133, 0.08) 100%)'
       }}
@@ -24,26 +24,26 @@ export const HeroSection: React.FC = () => {
         transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
         className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden"
       >
-        <div className="relative w-[520px] max-w-none aspect-[1/1.26] flex items-center justify-center -mx-16">
+        <div className="relative w-[440px] xs:w-[460px] md:w-[520px] max-w-none aspect-[1/1.26] flex items-center justify-center -mx-16">
           <motion.img 
             src="/images/hero/hero_gold_frame.png" 
             alt="Gold Arch Frame" 
-            className="w-full h-full object-contain filter drop-shadow-xs select-none scale-115"
+            className="w-full h-full object-contain filter drop-shadow-xs select-none scale-115 md:scale-115"
             animate={{ y: [0, -4, 0] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
           />
         </div>
       </motion.div>
-
+ 
       {/* Main Content inside the Frame - Snug & tight around the frame */}
-      <div className="z-10 my-auto flex flex-col items-center justify-center w-full max-w-[300px] text-center py-2 gap-7 select-none">
+      <div className="z-10 my-auto flex flex-col items-center justify-center w-full max-w-[300px] text-center py-1 gap-4 xs:gap-6 sm:gap-7 select-none">
         
         {/* Top Blessing Header */}
         <motion.div 
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="flex flex-col items-center justify-center pt-1"
+          className="flex flex-col items-center justify-center pt-0"
         >
           <p 
             className="font-mona font-normal text-[12px] text-[#684818] uppercase text-center"
@@ -55,7 +55,7 @@ export const HeroSection: React.FC = () => {
             WITH BLESSING<br />OF ALLAH
           </p>
         </motion.div>
-
+ 
         {/* Couple Names in Great Vibes Cursive Script */}
         <motion.div 
           initial="hidden"
@@ -70,7 +70,7 @@ export const HeroSection: React.FC = () => {
               }
             }
           }}
-          className="flex flex-col items-center justify-center gap-0 my-1"
+          className="flex flex-col items-center justify-center gap-0 my-0 xs:my-0.5 sm:my-1"
         >
           <motion.h1 
             variants={{
@@ -82,7 +82,7 @@ export const HeroSection: React.FC = () => {
           >
             Haani
           </motion.h1>
-
+ 
           <motion.span 
             variants={{
               hidden: { opacity: 0, scale: 0 },
@@ -92,7 +92,7 @@ export const HeroSection: React.FC = () => {
           >
             and
           </motion.span>
-
+ 
           <motion.h1 
             variants={{
               hidden: { opacity: 0, y: 20, scale: 0.96 },
@@ -104,13 +104,13 @@ export const HeroSection: React.FC = () => {
             Hanoon
           </motion.h1>
         </motion.div>
-
+ 
         {/* Wedding Date */}
         <motion.div 
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.6 }}
-          className="pb-1"
+          className="pb-0"
         >
           <p 
             className="font-mona font-normal text-[12px] text-[#684818] text-center"
@@ -123,7 +123,7 @@ export const HeroSection: React.FC = () => {
           </p>
         </motion.div>
       </div>
-
+ 
       {/* Scroll Down Prompt - Borderless, outline-less transparent button */}
       <motion.button 
         initial={{ opacity: 0, y: 15 }}
@@ -132,7 +132,7 @@ export const HeroSection: React.FC = () => {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={scrollToNext}
-        className="z-10 flex flex-col items-center gap-1.5 text-[#684818]/80 hover:text-[#684818] transition-colors cursor-pointer group pb-3 border-none outline-none focus:outline-none focus:ring-0 focus:border-none focus-visible:outline-none bg-transparent appearance-none"
+        className="z-10 flex flex-col items-center gap-1.5 text-[#684818]/80 hover:text-[#684818] transition-colors cursor-pointer group pb-1.5 xs:pb-2.5 sm:pb-3 border-none outline-none focus:outline-none focus:ring-0 focus:border-none focus-visible:outline-none bg-transparent appearance-none"
         aria-label="Scroll to next section"
       >
         <span 

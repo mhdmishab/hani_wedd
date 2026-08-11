@@ -27,7 +27,7 @@ export const RSVPSection: React.FC = () => {
       id="rsvp"
       className="relative w-full py-12 xs:py-16 sm:py-20 px-4 xs:px-6 flex flex-col items-center justify-center bg-[#FDFBF7] overflow-hidden"
     >
-      <div className="w-full max-w-[360px] xs:max-w-[380px] sm:max-w-[400px] flex flex-col items-center text-center">
+      <div className="w-full max-w-[360px] xs:max-w-[380px] sm:max-w-[400px] md:max-w-[460px] flex flex-col items-center text-center">
         
         {/* Star Line Top Divider SVG (Matching Screenshot) */}
         <motion.div 
@@ -43,7 +43,7 @@ export const RSVPSection: React.FC = () => {
           </svg>
           <div className="flex-1 h-[1px] bg-gradient-to-l from-transparent via-[#D9CEAE] to-[#D9CEAE]" />
         </motion.div>
-
+ 
         {/* Section Header */}
         <motion.div 
           initial={{ opacity: 0, y: 15 }}
@@ -58,19 +58,19 @@ export const RSVPSection: React.FC = () => {
           >
             RSVP
           </span>
-
+ 
           {/* Cursive Title */}
           <h2 className="font-vibes font-normal text-[48px] xs:text-[54px] sm:text-[58px] text-[#4D300E] leading-[1.08] select-none mb-3 xs:mb-4">
             Kindly Confirm<br />Your Presence
           </h2>
-
+ 
           {/* Subtitle Body */}
-          <p className="font-cormorant font-normal text-[16px] xs:text-[17px] text-[#613706] max-w-[300px] xs:max-w-[320px] leading-[1.4] text-center">
+          <p className="font-cormorant font-normal text-[16px] xs:text-[17px] text-[#613706] max-w-[300px] xs:max-w-[320px] md:max-w-md leading-[1.4] text-center">
             Please confirm your presence by entering<br className="hidden xs:inline" />
             your name and number of guests.
           </p>
         </motion.div>
-
+ 
         {/* RSVP Form */}
         {submitted ? (
           <motion.div 
@@ -93,7 +93,7 @@ export const RSVPSection: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
             onSubmit={handleSubmit}
-            className="w-full max-w-[315px] xs:max-w-[330px] flex flex-col gap-4 xs:gap-5 text-left"
+            className="w-full max-w-[315px] xs:max-w-[330px] md:max-w-[420px] flex flex-col gap-4 xs:gap-5 text-left"
           >
             {/* Field 1: Guest Name */}
             <div className="flex flex-col gap-1.5 w-full">

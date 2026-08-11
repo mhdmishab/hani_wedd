@@ -7,7 +7,7 @@ export const ReceptionEventSection: React.FC = () => {
   return (
     <section 
       id="reception-section"
-      className="relative w-full py-14 xs:py-18 sm:py-22 px-5 flex flex-col items-center justify-center bg-[#FDFBF7] overflow-hidden"
+      className="relative w-full md:w-1/2 py-8 md:py-6 px-5 flex flex-col items-center justify-center bg-[#FDFBF7] overflow-hidden"
     >
       <div className="w-full max-w-sm flex flex-col items-center text-center gap-6">
         

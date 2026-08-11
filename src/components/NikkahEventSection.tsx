@@ -8,7 +8,7 @@ export const NikkahEventSection: React.FC = () => {
   return (
     <section 
       id="nikkah-section"
-      className="relative w-full py-14 xs:py-18 sm:py-22 px-4 xs:px-5 flex flex-col items-center justify-center bg-[#FDFBF7] overflow-hidden"
+      className="relative w-full md:w-1/2 py-8 md:py-6 px-4 xs:px-5 flex flex-col items-center justify-center bg-[#FDFBF7] overflow-hidden"
     >
       <div className="w-full max-w-[360px] xs:max-w-[380px] sm:max-w-[400px] flex flex-col items-center text-center">
         

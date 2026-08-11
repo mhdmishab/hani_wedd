@@ -1,10 +1,20 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Volume2, VolumeX } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-export const AudioPlayer = () => {
+export const AudioPlayer = ({ shouldPlay = false }: { shouldPlay?: boolean }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    if (shouldPlay && audioRef.current && !isPlaying) {
+      audioRef.current.play().then(() => {
+        setIsPlaying(true);
+      }).catch(err => {
+        console.log("Audio play error (likely interaction policy):", err);
+      });
+    }
+  }, [shouldPlay]);
 
   const toggleAudio = () => {
     if (!audioRef.current) return;

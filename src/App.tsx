@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { HeroSection } from './components/HeroSection';
 import { NikkahEventSection } from './components/NikkahEventSection';
 import { InvitationSection } from './components/InvitationSection';
@@ -5,29 +6,57 @@ import { ReceptionEventSection } from './components/ReceptionEventSection';
 import { CountdownSection } from './components/CountdownSection';
 import { RSVPSection } from './components/RSVPSection';
 import { FooterSection } from './components/FooterSection';
-import { motion } from 'framer-motion';
+import { Envelope } from './components/Envelope';
+import { AudioPlayer } from './components/AudioPlayer';
+import { Verses } from './components/Verses';
+import { AnimatePresence } from 'framer-motion';
 
 export function App() {
+  const [envelopeOpened, setEnvelopeOpened] = useState(false);
+  const [versesProceeded, setVersesProceeded] = useState(false);
+
+  // Lock body scrolling until the user proceeds past the Verses screen
+  useEffect(() => {
+    if (!versesProceeded) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [versesProceeded]);
+
   return (
-    <div className="min-h-screen bg-[#140C04] flex justify-center items-center font-cormorant selection:bg-[#B8923F]/20 selection:text-[#4D300E] overflow-x-hidden w-full sm:py-8 md:py-12">
-      {/* Centered Luxury Digital Invitation Card Shell */}
-      <motion.div 
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="w-full max-w-[430px] bg-[#FDFBF7] sm:rounded-[32px] sm:shadow-[0_25px_70px_rgba(0,0,0,0.75)] sm:border sm:border-[#B8923F]/40 overflow-hidden relative"
-      >
-        <main className="w-full flex flex-col items-center gap-8 xs:gap-12 sm:gap-16">
-          <HeroSection />
-          <NikkahEventSection />
-          <InvitationSection />
-          <ReceptionEventSection />
-          <CountdownSection />
-          <RSVPSection />
-        </main>
+    <div className="min-h-screen bg-[#FDFBF7] font-cormorant selection:bg-[#B8923F]/20 selection:text-[#4D300E] overflow-x-hidden w-full flex flex-col justify-start items-center">
+      {/* Background Audio Player */}
+      <AudioPlayer shouldPlay={envelopeOpened} />
+
+      {/* Envelope Overlay */}
+      <Envelope onOpen={() => setEnvelopeOpened(true)} />
+
+      {/* Quran Verses Splash Screen Overlay */}
+      <AnimatePresence>
+        {envelopeOpened && !versesProceeded && (
+          <Verses onProceed={() => setVersesProceeded(true)} />
+        )}
+      </AnimatePresence>
+
+      <main className="w-full flex flex-col items-center gap-8 xs:gap-12 sm:gap-16">
+        <HeroSection />
         
-        <FooterSection />
-      </motion.div>
+        {/* Nikkah & Reception sections side-by-side on desktop/tablet, stacked on mobile */}
+        <div className="w-full max-w-5xl mx-auto flex flex-col md:flex-row md:items-stretch md:justify-center gap-4 md:gap-8 lg:gap-12 px-4 bg-[#FDFBF7]">
+          <NikkahEventSection />
+          <ReceptionEventSection />
+        </div>
+        
+        <InvitationSection />
+        <CountdownSection />
+        <RSVPSection />
+      </main>
+      
+      <FooterSection />
     </div>
   );
 }

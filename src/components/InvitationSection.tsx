@@ -52,12 +52,12 @@ export const InvitationSection: React.FC = () => {
 <linearGradient id="paint1_linear_63_1870" x1="115.277" y1="5.32147" x2="122.413" y2="14.2133" gradientUnits="userSpaceOnUse">
 <stop stopColor="#BC945D"/>
 <stop offset="0.2784" stopColor="#966F41"/>
-<stop offset="0.4243" stop-color="#C79B62"/>
-<stop offset="0.5578" stop-color="#EEBD7B"/>
-<stop offset="0.6275" stop-color="#FDCA85"/>
-<stop offset="0.7092" stop-color="#ECBB79"/>
-<stop offset="0.8713" stop-color="#BE935C"/>
-<stop offset="1" stop-color="#966F41"/>
+<stop offset="0.4243" stopColor="#C79B62"/>
+<stop offset="0.5578" stopColor="#EEBD7B"/>
+<stop offset="0.6275" stopColor="#FDCA85"/>
+<stop offset="0.7092" stopColor="#ECBB79"/>
+<stop offset="0.8713" stopColor="#BE935C"/>
+<stop offset="1" stopColor="#966F41"/>
 </linearGradient>
 <linearGradient id="paint2_linear_63_1870" x1="112.625" y1="1.59789" x2="119.761" y2="10.4897" gradientUnits="userSpaceOnUse">
 <stop stopColor="#BC945D"/>
@@ -96,8 +96,8 @@ export const InvitationSection: React.FC = () => {
 <stop offset="0.5578" stopColor="#EEBD7B"/>
 <stop offset="0.6275" stopColor="#FDCA85"/>
 <stop offset="0.7092" stopColor="#ECBB79"/>
-<stop offset="0.8713" stop-color="#BE935C"/>
-<stop offset="1" stop-color="#966F41"/>
+<stop offset="0.8713" stopColor="#BE935C"/>
+<stop offset="1" stopColor="#966F41"/>
 </linearGradient>
 <linearGradient id="paint6_linear_63_1870" x1="216.771" y1="8.25366" x2="219.778" y2="10.6174" gradientUnits="userSpaceOnUse">
 <stop stopColor="#BC945D"/>
@@ -117,7 +117,7 @@ export const InvitationSection: React.FC = () => {
 <stop offset="0.6275" stopColor="#FDCA85"/>
 <stop offset="0.7092" stopColor="#ECBB79"/>
 <stop offset="0.8713" stopColor="#BE935C"/>
-<stop offset="1" stop-color="#966F41"/>
+<stop offset="1" stopColor="#966F41"/>
 </linearGradient>
 <linearGradient id="paint8_linear_63_1870" x1="138.153" y1="10.356" x2="138.83" y2="10.7694" gradientUnits="userSpaceOnUse">
 <stop stopColor="#BC945D"/>
@@ -125,9 +125,9 @@ export const InvitationSection: React.FC = () => {
 <stop offset="0.4243" stopColor="#C79B62"/>
 <stop offset="0.5578" stopColor="#EEBD7B"/>
 <stop offset="0.6275" stopColor="#FDCA85"/>
-<stop offset="0.7092" stop-color="#ECBB79"/>
-<stop offset="0.8713" stop-color="#BE935C"/>
-<stop offset="1" stop-color="#966F41"/>
+<stop offset="0.7092" stopColor="#ECBB79"/>
+<stop offset="0.8713" stopColor="#BE935C"/>
+<stop offset="1" stopColor="#966F41"/>
 </linearGradient>
 <linearGradient id="paint9_linear_63_1870" x1="170.225" y1="10.688" x2="170.236" y2="11.5142" gradientUnits="userSpaceOnUse">
 <stop stopColor="#BC945D"/>
@@ -137,77 +137,77 @@ export const InvitationSection: React.FC = () => {
 <stop offset="0.6275" stopColor="#FDCA85"/>
 <stop offset="0.7092" stopColor="#ECBB79"/>
 <stop offset="0.8713" stopColor="#BE935C"/>
-<stop offset="1" stop-color="#966F41"/>
+<stop offset="1" stopColor="#966F41"/>
 </linearGradient>
 <linearGradient id="paint10_linear_63_1870" x1="4.0535" y1="7.42978" x2="8.01319" y2="11.3104" gradientUnits="userSpaceOnUse">
 <stop stopColor="#BC945D"/>
 <stop offset="0.2784" stopColor="#966F41"/>
 <stop offset="0.4243" stopColor="#C79B62"/>
-<stop offset="0.5578" stop-color="#EEBD7B"/>
-<stop offset="0.6275" stop-color="#FDCA85"/>
-<stop offset="0.7092" stop-color="#ECBB79"/>
-<stop offset="0.8713" stop-color="#BE935C"/>
-<stop offset="1" stop-color="#966F41"/>
+<stop offset="0.5578" stopColor="#EEBD7B"/>
+<stop offset="0.6275" stopColor="#FDCA85"/>
+<stop offset="0.7092" stopColor="#ECBB79"/>
+<stop offset="0.8713" stopColor="#BE935C"/>
+<stop offset="1" stopColor="#966F41"/>
 </linearGradient>
 <linearGradient id="paint11_linear_63_1870" x1="10.1709" y1="9.97945" x2="11.2101" y2="10.6143" gradientUnits="userSpaceOnUse">
 <stop stopColor="#BC945D"/>
 <stop offset="0.2784" stopColor="#966F41"/>
 <stop offset="0.4243" stopColor="#C79B62"/>
-<stop offset="0.5578" stop-color="#EEBD7B"/>
-<stop offset="0.6275" stop-color="#FDCA85"/>
-<stop offset="0.7092" stop-color="#ECBB79"/>
-<stop offset="0.8713" stop-color="#BE935C"/>
-<stop offset="1" stop-color="#966F41"/>
+<stop offset="0.5578" stopColor="#EEBD7B"/>
+<stop offset="0.6275" stopColor="#FDCA85"/>
+<stop offset="0.7092" stopColor="#ECBB79"/>
+<stop offset="0.8713" stopColor="#BE935C"/>
+<stop offset="1" stopColor="#966F41"/>
 </linearGradient>
 <linearGradient id="paint12_linear_63_1870" x1="17.0108" y1="10.0068" x2="18.0499" y2="10.6417" gradientUnits="userSpaceOnUse">
 <stop stopColor="#BC945D"/>
 <stop offset="0.2784" stopColor="#966F41"/>
 <stop offset="0.4243" stopColor="#C79B62"/>
-<stop offset="0.5578" stop-color="#EEBD7B"/>
-<stop offset="0.6275" stop-color="#FDCA85"/>
-<stop offset="0.7092" stop-color="#ECBB79"/>
-<stop offset="0.8713" stop-color="#BE935C"/>
-<stop offset="1" stop-color="#966F41"/>
+<stop offset="0.5578" stopColor="#EEBD7B"/>
+<stop offset="0.6275" stopColor="#FDCA85"/>
+<stop offset="0.7092" stopColor="#ECBB79"/>
+<stop offset="0.8713" stopColor="#BE935C"/>
+<stop offset="1" stopColor="#966F41"/>
 </linearGradient>
 <linearGradient id="paint13_linear_63_1870" x1="13.2589" y1="8.25366" x2="16.2657" y2="10.6172" gradientUnits="userSpaceOnUse">
 <stop stopColor="#BC945D"/>
 <stop offset="0.2784" stopColor="#966F41"/>
 <stop offset="0.4243" stopColor="#C79B62"/>
-<stop offset="0.5578" stop-color="#EEBD7B"/>
-<stop offset="0.6275" stop-color="#FDCA85"/>
-<stop offset="0.7092" stop-color="#ECBB79"/>
-<stop offset="0.8713" stop-color="#BE935C"/>
-<stop offset="1" stop-color="#966F41"/>
+<stop offset="0.5578" stopColor="#EEBD7B"/>
+<stop offset="0.6275" stopColor="#FDCA85"/>
+<stop offset="0.7092" stopColor="#ECBB79"/>
+<stop offset="0.8713" stopColor="#BE935C"/>
+<stop offset="1" stopColor="#966F41"/>
 </linearGradient>
 <linearGradient id="paint14_linear_63_1870" x1="95.8233" y1="8.69617" x2="98.4018" y2="11.2233" gradientUnits="userSpaceOnUse">
 <stop stopColor="#BC945D"/>
 <stop offset="0.2784" stopColor="#966F41"/>
 <stop offset="0.4243" stopColor="#C79B62"/>
-<stop offset="0.5578" stop-color="#EEBD7B"/>
-<stop offset="0.6275" stop-color="#FDCA85"/>
-<stop offset="0.7092" stop-color="#ECBB79"/>
-<stop offset="0.8713" stop-color="#BE935C"/>
-<stop offset="1" stop-color="#966F41"/>
+<stop offset="0.5578" stopColor="#EEBD7B"/>
+<stop offset="0.6275" stopColor="#FDCA85"/>
+<stop offset="0.7092" stopColor="#ECBB79"/>
+<stop offset="0.8713" stopColor="#BE935C"/>
+<stop offset="1" stopColor="#966F41"/>
 </linearGradient>
 <linearGradient id="paint15_linear_63_1870" x1="92.6766" y1="10.356" x2="93.3533" y2="10.7694" gradientUnits="userSpaceOnUse">
 <stop stopColor="#BC945D"/>
 <stop offset="0.2784" stopColor="#966F41"/>
-<stop offset="0.4243" stop-color="#C79B62"/>
-<stop offset="0.5578" stop-color="#EEBD7B"/>
-<stop offset="0.6275" stop-color="#FDCA85"/>
-<stop offset="0.7092" stop-color="#ECBB79"/>
-<stop offset="0.8713" stop-color="#BE935C"/>
-<stop offset="1" stop-color="#966F41"/>
+<stop offset="0.4243" stopColor="#C79B62"/>
+<stop offset="0.5578" stopColor="#EEBD7B"/>
+<stop offset="0.6275" stopColor="#FDCA85"/>
+<stop offset="0.7092" stopColor="#ECBB79"/>
+<stop offset="0.8713" stopColor="#BE935C"/>
+<stop offset="1" stopColor="#966F41"/>
 </linearGradient>
 <linearGradient id="paint16_linear_63_1870" x1="48.5531" y1="10.688" x2="48.5645" y2="11.5142" gradientUnits="userSpaceOnUse">
 <stop stopColor="#BC945D"/>
 <stop offset="0.2784" stopColor="#966F41"/>
-<stop offset="0.4243" stop-color="#C79B62"/>
-<stop offset="0.5578" stop-color="#EEBD7B"/>
-<stop offset="0.6275" stop-color="#FDCA85"/>
-<stop offset="0.7092" stop-color="#ECBB79"/>
-<stop offset="0.8713" stop-color="#BE935C"/>
-<stop offset="1" stop-color="#966F41"/>
+<stop offset="0.4243" stopColor="#C79B62"/>
+<stop offset="0.5578" stopColor="#EEBD7B"/>
+<stop offset="0.6275" stopColor="#FDCA85"/>
+<stop offset="0.7092" stopColor="#ECBB79"/>
+<stop offset="0.8713" stopColor="#BE935C"/>
+<stop offset="1" stopColor="#966F41"/>
 </linearGradient>
 </defs>
 </svg>
