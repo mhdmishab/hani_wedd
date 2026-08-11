@@ -43,7 +43,7 @@ export function App() {
       </AnimatePresence>
 
       {envelopeOpened && versesProceeded && (
-        <main className="w-full flex flex-col items-center gap-8 xs:gap-12 sm:gap-16">
+        <main className="w-full flex flex-col items-center">
           <HeroSection />
 
           {/* Nikkah & Reception sections side-by-side on desktop/tablet, stacked on mobile */}
