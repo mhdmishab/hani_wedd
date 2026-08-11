@@ -53,14 +53,14 @@ export const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
             <motion.img
               src="/images/envelope/envelope_cover_up.png"
               alt="Envelope Cover Up"
-              className="absolute top-0 left-0 w-full h-auto pointer-events-none z-20"
+              className="absolute top-0 left-0 w-full h-auto max-h-[460px] pointer-events-none z-20"
               initial={{ y: 0, opacity: 1 }}
               animate={isOpen ? { y: '-105%', opacity: 0 } : { y: 0, opacity: 1 }}
-              transition={{ duration: 1.5, ease: [0.43, 0.13, 0.23, 0.96] }}
+              transition={{ duration: 2.2, ease: [0.43, 0.13, 0.23, 0.96] }}
             />
 
             {/* Tap to Open Prompt */}
-            {!isOpen && (
+            {/* {!isOpen && (
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: [0.4, 0.9, 0.4], y: 0 }}
@@ -74,16 +74,16 @@ export const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
                   </span>
                 </div>
               </motion.div>
-            )}
+            )} */}
 
             {/* Bottom Card & Names (Cover Down) */}
             <motion.img
               src="/images/envelope/envelope_cover_down.png"
               alt="Envelope Cover Down"
-              className="absolute bottom-0 left-0 w-full h-auto pointer-events-none z-10"
+              className="absolute bottom-0 left-0 w-full h-auto max-h-[610px] pointer-events-none z-10"
               initial={{ y: 0, opacity: 1 }}
               animate={isOpen ? { y: '105%', opacity: 0 } : { y: 0, opacity: 1 }}
-              transition={{ duration: 1.5, ease: [0.43, 0.13, 0.23, 0.96] }}
+              transition={{ duration: 2.2, ease: [0.43, 0.13, 0.23, 0.96] }}
             />
           </div>
         </motion.div>
