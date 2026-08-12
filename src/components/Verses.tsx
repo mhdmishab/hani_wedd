@@ -146,12 +146,11 @@ export const Verses: React.FC<VersesProps> = ({ onProceed }) => {
       <div
         className="
           relative
-          top-[170px]
           z-20
           flex-1
           flex
           flex-col
-          justify-start
+          justify-center
           items-center
           max-w-[600px]
           text-center
