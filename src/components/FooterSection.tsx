@@ -150,13 +150,13 @@ export const FooterSection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="font-cormorant italic text-[18px] text-[#F5E7CF]/95 max-w-[300px] text-center leading-[26px] px-2 my-2"
+          className="font-cormorant italic text-[clamp(13px,4.5vw,18px)] text-[#F5E7CF]/95 w-full max-w-[340px] text-center leading-[26px] px-2 my-2"
           style={{ letterSpacing: '0px' }}
         >
-          With love, prayers, and gratitude.<br />
-          May Allah bless our union with,<br />
-          Barakah, Mercy, Understanding and<br />
-          Lasting happiness. Aameen!!
+          <span className="block whitespace-nowrap">With love, prayers, and gratitude.</span>
+          <span className="block whitespace-nowrap">May Allah bless our union with,</span>
+          <span className="block whitespace-nowrap">Barakah, Mercy, Understanding and</span>
+          <span className="block whitespace-nowrap">Lasting happiness. Aameen!!</span>
         </motion.p>
 
         {/* Bottom Star Line SVG */}

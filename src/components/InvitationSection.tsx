@@ -213,17 +213,16 @@ export const InvitationSection: React.FC = () => {
 </svg>
         </motion.div>
 
-        {/* Invitation Text Body - Exact text and styling from screenshot */}
         <motion.p 
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.15 }}
-          className="font-cormorant font-normal text-[17px] xs:text-[18px] sm:text-[19px] leading-[1.45] text-[#613706] max-w-[320px] xs:max-w-[340px] px-2 text-center mb-9 xs:mb-11"
+          className="font-cormorant font-normal text-[clamp(13px,4.4vw,18px)] sm:text-[19px] leading-[1.45] text-[#613706] w-full max-w-[360px] px-2 text-center mb-9 xs:mb-11"
         >
-          We joyfully invite you to celebrate our Nikah and<br className="hidden xs:inline" />
-          Wedding ceremony. Your presence and duas will<br className="hidden xs:inline" />
-          make this occasion truly special.
+          <span className="block whitespace-nowrap">We joyfully invite you to celebrate our Nikah and</span>
+          <span className="block whitespace-nowrap">Wedding ceremony. Your presence and duas will</span>
+          <span className="block whitespace-nowrap">make this occasion truly special.</span>
         </motion.p>
 
         {/* Groom & Bride Details - Exact typography, font family, and margins from screenshot */}
@@ -272,7 +271,7 @@ export const InvitationSection: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.45 }}
           className="mt-2 mb-4 relative flex justify-center items-center select-none"
         >
-          <div className="w-[360px] xs:w-[380px] aspect-[1/1.12] relative drop-shadow-[0_16px_30px_rgba(0,0,0,0.18)] transition-transform hover:rotate-0 duration-500">
+          <div className="w-[460px] xs:w-[480px] aspect-[1/1.12] relative drop-shadow-[0_16px_30px_rgba(0,0,0,0.18)] transition-transform hover:rotate-0 duration-500">
             <img 
               src="/images/invitation/childhood_polaroid.png" 
               alt="Haani and Hanoon childhood photo" 

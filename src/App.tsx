@@ -10,6 +10,7 @@ import { Envelope } from './components/Envelope';
 import { AudioPlayer } from './components/AudioPlayer';
 import { Verses } from './components/Verses';
 import { AnimatePresence } from 'framer-motion';
+import { FallingLeaves } from './components/FallingLeaves';
 
 export function App() {
   const [envelopeOpened, setEnvelopeOpened] = useState(false);
@@ -52,6 +53,8 @@ export function App() {
           ===================================================== */}
 
       {envelopeOpened && <AudioPlayer shouldPlay={envelopeOpened} />}
+
+      {envelopeOpened && <FallingLeaves />}
 
       {/* =====================================================
           ENVELOPE

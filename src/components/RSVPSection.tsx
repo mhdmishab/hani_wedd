@@ -77,9 +77,9 @@ export const RSVPSection: React.FC = () => {
           </h2>
  
           {/* Subtitle Body */}
-          <p className="font-cormorant font-normal text-[16px] xs:text-[17px] text-[#613706] max-w-[300px] xs:max-w-[320px] md:max-w-md leading-[1.4] text-center">
-            Please confirm your presence by entering<br className="hidden xs:inline" />
-            your name and number of guests.
+          <p className="font-cormorant font-normal text-[clamp(13px,4.3vw,17px)] text-[#613706] w-full max-w-[340px] md:max-w-md leading-[1.4] text-center">
+            <span className="block whitespace-nowrap">Please confirm your presence by entering</span>
+            <span className="block whitespace-nowrap">your name and number of guests.</span>
           </p>
         </motion.div>
  

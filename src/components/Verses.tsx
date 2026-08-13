@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 interface VersesProps {
@@ -6,6 +6,14 @@ interface VersesProps {
 }
 
 export const Verses: React.FC<VersesProps> = ({ onProceed }) => {
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      onProceed();
+    }, 10000); // 10 seconds
+
+    return () => clearTimeout(timer);
+  }, [onProceed]);
+
   return (
     <motion.section
       onClick={onProceed}
@@ -178,9 +186,9 @@ export const Verses: React.FC<VersesProps> = ({ onProceed }) => {
           }}
           className="
             font-Abhaya Libre Medium
-            text-[12px]
-            xs:text-[14px]
-            sm:text-[16px]
+            text-[6px]
+            xs:text-[12px]
+            sm:text-[15px]
             text-[#4D300E]
             leading-relaxed
             font-medium
