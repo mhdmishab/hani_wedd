@@ -3,8 +3,8 @@ import { GoldOrnamentDivider } from './GoldOrnamentDivider';
 import { Calendar, Clock, MapPin, ExternalLink } from 'lucide-react';
 
 export const EventsSection: React.FC = () => {
-  const nikkahMapUrl = "https://maps.google.com/?q=Payyanur,Kannur,Kerala";
-  const receptionMapUrl = "https://maps.google.com/?q=Eripram,Kannur,Kerala";
+  const nikkahMapUrl = "https://www.google.com/maps?q=12.096549034118652,75.1937484741211&z=17&hl=en";
+  const receptionMapUrl = "https://goo.gl/maps/1TyQjvnW9Fn673WK7?g_st=aw";
 
   return (
     <section id="events" className="py-16 px-4 md:py-24 max-w-5xl mx-auto flex flex-col items-center">

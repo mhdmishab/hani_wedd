@@ -66,11 +66,9 @@ export const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
             flex
             items-center
             justify-center
-            bg-[#1E1008]/80
             overflow-hidden
             cursor-pointer
             select-none
-            backdrop-blur-md
           "
           onClick={handleOpen}
           initial={{
@@ -84,6 +82,22 @@ export const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
             ease: 'easeInOut',
           }}
         >
+          {/* Backdrop Background & Blur Layer (Fades out quickly on open) */}
+          <motion.div
+            className="
+              absolute
+              inset-0
+              bg-[#1E1008]/80
+              backdrop-blur-md
+              z-0
+            "
+            initial={{ opacity: 1 }}
+            animate={isOpen ? { opacity: 0 } : { opacity: 1 }}
+            transition={{
+              duration: 1.5,
+              ease: [0.16, 1, 0.3, 1],
+            }}
+          />
           {/* =====================================================
               ENVELOPE FRAME
               Full-bleed on mobile (100dvh avoids browser-chrome
@@ -100,13 +114,13 @@ export const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
               sm:rounded-2xl
               sm:shadow-2xl
               overflow-hidden
-              bg-[#2B1B12]
+              bg-[#fff]
               flex
               flex-col
               justify-between
               z-10
             "
-            style={{ height: '100dvh' }}
+            style={{ height: '100dvh', maxWidth: 'min(430px, 48dvh)', containerType: 'inline-size' }}
           >
             {/* Inner vignette */}
 
@@ -167,13 +181,13 @@ export const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
             />
 
             {/* =====================================================
-                BOTTOM COVER
+                BOTTOM COVER BLANK
                 Natural aspect ratio preserved, same reasoning
                 as the top cover.
                 ===================================================== */}
 
             <motion.img
-              src="/images/envelope/envelope_cover_down.png"
+              src="/images/envelope/envelope_cover_down_blank.png"
               alt="Envelope Cover Down"
               className="
                 absolute
@@ -198,6 +212,84 @@ export const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
                     }
                   : {
                       y: 0,
+                    }
+              }
+              transition={{
+                duration: 4.5,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+            />
+
+            {/* =====================================================
+                NAMES TEXT PNG
+                Positioned relative to the top cover's wax seal.
+                ===================================================== */}
+
+            <motion.img
+              src="/images/envelope/envelope_names.png"
+              alt="Haani & Hanoon"
+              className="
+                absolute
+                left-1/2
+                pointer-events-none
+                z-[15]
+              "
+              style={{
+                width: '50cqw',
+                top: '171.78cqw',
+              }}
+              initial={{
+                y: 0,
+                x: '-50%',
+              }}
+              animate={
+                isOpen
+                  ? {
+                      y: '218.88cqw',
+                      x: '-50%',
+                    }
+                  : {
+                      y: 0,
+                      x: '-50%',
+                    }
+              }
+              transition={{
+                duration: 4.5,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+            />
+
+            {/* =====================================================
+                DATE TEXT PNG
+                Positioned relative to the top cover's wax seal.
+                ===================================================== */}
+
+            <motion.img
+              src="/images/envelope/envelope_date.png"
+              alt="22.06.2026"
+              className="
+                absolute
+                left-1/2
+                pointer-events-none
+                z-[15]
+              "
+              style={{
+                width: '25.5cqw',
+                top: '181.84cqw',
+              }}
+              initial={{
+                y: 0,
+                x: '-50%',
+              }}
+              animate={
+                isOpen
+                  ? {
+                      y: '218.88cqw',
+                      x: '-50%',
+                    }
+                  : {
+                      y: 0,
+                      x: '-50%',
                     }
               }
               transition={{

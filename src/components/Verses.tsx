@@ -152,7 +152,7 @@ export const Verses: React.FC<VersesProps> = ({ onProceed }) => {
           flex-col
           justify-center
           items-center
-          max-w-[600px]
+          max-w-[300px]
           text-center
           gap-5
           xs:gap-7
@@ -177,11 +177,10 @@ export const Verses: React.FC<VersesProps> = ({ onProceed }) => {
             ease: 'easeOut',
           }}
           className="
-            font-cormorant
-            italic
-            text-[17px]
-            xs:text-[19px]
-            sm:text-[21px]
+            font-Abhaya Libre Medium
+            text-[12px]
+            xs:text-[14px]
+            sm:text-[16px]
             text-[#4D300E]
             leading-relaxed
             font-medium
@@ -190,12 +189,12 @@ export const Verses: React.FC<VersesProps> = ({ onProceed }) => {
           "And of His signs is that He created for you from yourselves mates
           that you may find tranquility in them; and He placed between you
           affection and mercy. Indeed in that are signs for a people who give
-          thought."
+          thought."— [Surah Ar-Rum 30:21]
         </motion.p>
 
         {/* Surah reference */}
 
-        <motion.span
+        {/* <motion.span
           initial={{
             opacity: 0,
           }}
@@ -209,15 +208,15 @@ export const Verses: React.FC<VersesProps> = ({ onProceed }) => {
           }}
           className="
             font-mona
-            text-[10px]
-            xs:text-[11px]
+            text-[7px]
+            xs:text-[9px]
             text-[#684818]
             uppercase
             tracking-[0.25em]
           "
         >
           — [Surah Ar-Rum 30:21]
-        </motion.span>
+        </motion.span> */}
       </div>
 
       {/* =====================================================

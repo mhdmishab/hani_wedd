@@ -9,9 +9,14 @@ export const RSVPSection: React.FC = () => {
     attending: ''
   });
   const [submitted, setSubmitted] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!formData.name.trim() || !formData.attending) {
+      return;
+    }
+
     setSubmitted(true);
 
     confetti({
@@ -20,6 +25,13 @@ export const RSVPSection: React.FC = () => {
       origin: { y: 0.6 },
       colors: ['#B8923F', '#89541C', '#F2E5C7']
     });
+
+    const attendanceText = formData.attending === 'yes' ? 'Joyfully Accept' : 'Regretfully Decline';
+    const messageText = `Hello! I would like to confirm my RSVP:\n\n*Name:* ${formData.name}\n*Number of Guests:* ${formData.guests}\n*Attendance:* ${attendanceText}`;
+    const whatsappUrl = `https://wa.me/916282987729?text=${encodeURIComponent(messageText)}`;
+    
+    // Open WhatsApp in a new tab
+    window.open(whatsappUrl, '_blank');
   };
 
   return (
@@ -111,27 +123,59 @@ export const RSVPSection: React.FC = () => {
             </div>
 
             {/* Field 2: Number of guest */}
-            <div className="flex flex-col gap-1.5 w-full">
+            <div className="flex flex-col gap-1.5 w-full relative">
               <label className="font-mona text-[11.5px] xs:text-[12px] font-normal text-[#684818]">
                 Number of guest
               </label>
-              <select 
-                value={formData.guests}
-                onChange={(e) => setFormData({ ...formData, guests: e.target.value })}
-                className="w-full h-[48px] xs:h-[50px] rounded-[18px] px-4 font-mona text-[13px] text-[#4D300E] border border-[#E4D9BD] bg-[#FAF3E1] outline-none focus:border-[#89541C] transition-colors cursor-pointer appearance-none"
-                style={{
-                  backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2389541C'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='1.8' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`,
-                  backgroundRepeat: 'no-repeat',
-                  backgroundPosition: 'right 1.25rem center',
-                  backgroundSize: '1.1em'
-                }}
+              
+              {/* Custom Select Box */}
+              <div 
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+                className={`w-full h-[48px] xs:h-[50px] rounded-[18px] px-4 font-mona text-[13px] text-[#4D300E] border bg-[#FAF3E1] flex items-center justify-between cursor-pointer select-none transition-colors ${
+                  dropdownOpen ? 'border-[#89541C]' : 'border-[#E4D9BD]'
+                }`}
               >
-                {[1, 2, 3, 4, 5, 6, 7, 8].map(num => (
-                  <option key={num} value={num}>
-                    {num}
-                  </option>
-                ))}
-              </select>
+                <span>{formData.guests}</span>
+                <svg 
+                  className={`w-4 h-4 text-[#89541C] transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`}
+                  fill="none" 
+                  viewBox="0 0 24 24" 
+                  stroke="currentColor" 
+                  strokeWidth="1.8"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+
+              {/* Custom Options List */}
+              {dropdownOpen && (
+                <>
+                  {/* Backdrop overlay to close dropdown */}
+                  <div 
+                    className="fixed inset-0 z-10 cursor-default" 
+                    onClick={() => setDropdownOpen(false)}
+                  />
+                  
+                  <div className="absolute top-[calc(100%+4px)] left-0 w-full bg-[#FAF3E1] border border-[#E4D9BD] rounded-[18px] py-1.5 shadow-lg z-20 max-h-[200px] overflow-y-auto">
+                    {[1, 2, 3, 4, 5, 6, 7, 8].map(num => (
+                      <div
+                        key={num}
+                        onClick={() => {
+                          setFormData({ ...formData, guests: String(num) });
+                          setDropdownOpen(false);
+                        }}
+                        className={`px-4 py-2.5 text-[13px] font-mona text-[#4D300E] cursor-pointer transition-colors ${
+                          formData.guests === String(num)
+                            ? 'bg-[#89541C] text-white'
+                            : 'hover:bg-[#E4D9BD]/40 hover:text-[#89541C]'
+                        }`}
+                      >
+                        {num}
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
             </div>
 
             {/* Field 3: Will you attend? */}
@@ -146,7 +190,7 @@ export const RSVPSection: React.FC = () => {
                   className={`h-[48px] xs:h-[50px] rounded-[18px] font-mona text-[12.5px] xs:text-[13px] font-medium transition-all cursor-pointer border ${
                     formData.attending === 'yes'
                       ? 'bg-[#89541C] text-white border-[#89541C] shadow-xs'
-                      : 'bg-white border-[#E4D9BD] text-[#4D300E] hover:bg-[#FAF3E1]/60'
+                      : 'bg-[#FAF3E1] border-[#E4D9BD] text-[#4D300E] hover:bg-[#E4D9BD]/30'
                   }`}
                 >
                   Joyfully accept
@@ -158,7 +202,7 @@ export const RSVPSection: React.FC = () => {
                   className={`h-[48px] xs:h-[50px] rounded-[18px] font-mona text-[12.5px] xs:text-[13px] font-medium transition-all cursor-pointer border ${
                     formData.attending === 'no'
                       ? 'bg-[#89541C] text-white border-[#89541C] shadow-xs'
-                      : 'bg-white border-[#E4D9BD] text-[#4D300E] hover:bg-[#FAF3E1]/60'
+                      : 'bg-[#FAF3E1] border-[#E4D9BD] text-[#4D300E] hover:bg-[#E4D9BD]/30'
                   }`}
                 >
                   Regretfully decline
@@ -170,9 +214,14 @@ export const RSVPSection: React.FC = () => {
             <div className="flex justify-center mt-3 xs:mt-4">
               <motion.button 
                 type="submit"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                className="w-full max-w-[200px] xs:max-w-[210px] h-[44px] xs:h-[46px] rounded-full bg-[#89541C] text-white font-mona font-medium text-[13.5px] xs:text-[14px] tracking-[0.02em] flex items-center justify-center shadow-[0_4px_14px_rgba(137,84,28,0.28)] hover:bg-[#724314] transition-all cursor-pointer border-none"
+                whileHover={!formData.name.trim() || !formData.attending ? {} : { scale: 1.03 }}
+                whileTap={!formData.name.trim() || !formData.attending ? {} : { scale: 0.97 }}
+                className={`w-full max-w-[200px] xs:max-w-[210px] h-[44px] xs:h-[46px] rounded-full font-mona font-medium text-[13.5px] xs:text-[14px] tracking-[0.02em] flex items-center justify-center transition-all border-none ${
+                  !formData.name.trim() || !formData.attending
+                    ? 'bg-[#89541C]/50 text-white/70 cursor-not-allowed shadow-none'
+                    : 'bg-[#89541C] text-white shadow-[0_4px_14px_rgba(137,84,28,0.28)] hover:bg-[#724314] cursor-pointer'
+                }`}
+                disabled={!formData.name.trim() || !formData.attending}
                 style={{ color: '#FFFFFF' }}
               >
                 <span style={{ color: '#FFFFFF' }}>Submit RSVP</span>

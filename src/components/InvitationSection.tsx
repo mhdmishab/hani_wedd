@@ -272,7 +272,7 @@ export const InvitationSection: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.45 }}
           className="mt-2 mb-4 relative flex justify-center items-center select-none"
         >
-          <div className="w-[260px] xs:w-[280px] aspect-[1/1.12] relative drop-shadow-[0_16px_30px_rgba(0,0,0,0.18)] transition-transform hover:rotate-0 duration-500">
+          <div className="w-[360px] xs:w-[380px] aspect-[1/1.12] relative drop-shadow-[0_16px_30px_rgba(0,0,0,0.18)] transition-transform hover:rotate-0 duration-500">
             <img 
               src="/images/invitation/childhood_polaroid.png" 
               alt="Haani and Hanoon childhood photo" 

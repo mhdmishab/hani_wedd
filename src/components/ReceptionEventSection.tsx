@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 export const ReceptionEventSection: React.FC = () => {
-  const mapUrl = "https://maps.google.com/?q=Eripram,Kannur,Kerala";
+  const mapUrl = "https://goo.gl/maps/1TyQjvnW9Fn673WK7?g_st=aw";
 
   return (
     <section 

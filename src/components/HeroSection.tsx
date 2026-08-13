@@ -70,7 +70,7 @@ export const HeroSection: React.FC = () => {
               }
             }
           }}
-          className="flex flex-col items-center justify-center gap-0 my-0 xs:my-0.5 sm:my-1"
+          className="flex flex-col items-center justify-center gap-5"
         >
           <motion.h1 
             variants={{

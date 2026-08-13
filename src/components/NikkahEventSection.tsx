@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { GoldOrnamentWingLeft, GoldOrnamentWingRight } from './GoldOrnamentDivider';
 
 export const NikkahEventSection: React.FC = () => {
-  const mapUrl = "https://maps.google.com/?q=Payyanur,Kannur,Kerala";
+  const mapUrl = "https://www.google.com/maps?q=12.096549034118652,75.1937484741211&z=17&hl=en";
 
   return (
     <section 
