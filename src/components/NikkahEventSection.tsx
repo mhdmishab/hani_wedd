@@ -1,14 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { GoldOrnamentWingLeft, GoldOrnamentWingRight } from './GoldOrnamentDivider';
+import { useIsHanoonHaaniDomain } from '../utils/domainConfig';
 
 export const NikkahEventSection: React.FC = () => {
+  const isHanoonHaani = useIsHanoonHaaniDomain();
   const mapUrl = "https://www.google.com/maps?q=12.096549034118652,75.1937484741211&z=17&hl=en";
 
   return (
     <section 
       id="nikkah-section"
-      className="relative w-full md:w-1/2 py-8 md:py-6 px-4 xs:px-5 flex flex-col items-center justify-center bg-[#FDFBF7] overflow-hidden"
+      className={`relative w-full ${isHanoonHaani ? 'max-w-[420px]' : 'md:w-1/2'} py-8 md:py-6 px-4 xs:px-5 flex flex-col items-center justify-center bg-[#FDFBF7] overflow-hidden`}
     >
       <div className="w-full max-w-[360px] xs:max-w-[380px] sm:max-w-[400px] flex flex-col items-center text-center">
         
@@ -65,11 +67,11 @@ export const NikkahEventSection: React.FC = () => {
             <p 
               className="font-mona font-normal text-[10px] xs:text-[10.5px] text-[#684818] uppercase mb-5 xs:mb-6"
               style={{
-                letterSpacing: '0.36em',
+                letterSpacing: isHanoonHaani ? '0.22em' : '0.36em',
                 lineHeight: '100%',
               }}
             >
-              NIKAH CEREMONY AT
+              {isHanoonHaani ? 'NIKAH & RECEPTION CEREMONY AT' : 'NIKAH CEREMONY AT'}
             </p>
 
             {/* Venue Heading */}
@@ -77,7 +79,11 @@ export const NikkahEventSection: React.FC = () => {
               className="font-playfair font-medium text-[34px] xs:text-[38px] text-[#4D300E] leading-[1.15] mb-6 xs:mb-7"
               style={{ letterSpacing: '0px' }}
             >
-              Bride’s<br />Residency
+              {isHanoonHaani ? (
+                'Safa Marwa'
+              ) : (
+                <>Bride’s<br />Residency</>
+              )}
             </h3>
 
             {/* Date Details */}
@@ -100,7 +106,7 @@ export const NikkahEventSection: React.FC = () => {
                   <circle cx="12" cy="12" r="10" />
                   <polyline points="12 6 12 12 16 14" />
                 </svg>
-                10:00 AM
+                {isHanoonHaani ? '10:00 AM Onwards' : '10:00 AM'}
               </span>
               
               <span className="flex items-center gap-1.5">
@@ -130,6 +136,7 @@ export const NikkahEventSection: React.FC = () => {
     </section>
   );
 };
+
 
 
 

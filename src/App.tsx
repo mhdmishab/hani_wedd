@@ -11,10 +11,12 @@ import { AudioPlayer } from './components/AudioPlayer';
 import { Verses } from './components/Verses';
 import { AnimatePresence } from 'framer-motion';
 import { FallingLeaves } from './components/FallingLeaves';
+import { useIsHanoonHaaniDomain } from './utils/domainConfig';
 
 export function App() {
   const [envelopeOpened, setEnvelopeOpened] = useState(false);
   const [versesProceeded, setVersesProceeded] = useState(false);
+  const isHanoonHaani = useIsHanoonHaaniDomain();
 
   /*
    * Lock scrolling until the user proceeds
@@ -96,24 +98,22 @@ export function App() {
           <HeroSection />
 
           <div
-            className="
+            className={`
               w-full
               max-w-5xl
               mx-auto
               flex
               flex-col
-              md:flex-row
-              md:items-stretch
-              md:justify-center
+              ${isHanoonHaani ? 'items-center justify-center' : 'md:flex-row md:items-stretch md:justify-center'}
               gap-4
               md:gap-8
               lg:gap-12
               px-4
               bg-[#FDFBF7]
-            "
+            `}
           >
             <NikkahEventSection />
-            <ReceptionEventSection />
+            {!isHanoonHaani && <ReceptionEventSection />}
           </div>
 
           <InvitationSection />
