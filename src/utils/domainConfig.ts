@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 
 /**
- * Helper to check if current domain is hanoonhaani.netlify.app
+ * Helper to check if current domain is hanoonhaani domain
+ * (e.g. hanoonhaani.com, hanoonhaani.netlify.app, etc.)
  * or if query parameter includes hanoonhaani for testing.
  */
 export function isHanoonHaaniDomain(): boolean {
@@ -9,7 +10,14 @@ export function isHanoonHaaniDomain(): boolean {
   const hostname = window.location.hostname.toLowerCase();
   const search = window.location.search.toLowerCase();
 
-  return hostname.includes('hanoonhaani') || search.includes('hanoonhaani');
+  return (
+    hostname.includes('hanoonhaani') ||
+    hostname.includes('hanoon-haani') ||
+    hostname.includes('hanoon') ||
+    search.includes('hanoonhaani') ||
+    search.includes('hanoon-haani') ||
+    search.includes('hanoon')
+  );
 }
 
 /**

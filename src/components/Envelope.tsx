@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useIsHanoonHaaniDomain } from '../utils/domainConfig';
 
 interface EnvelopeProps {
   onOpen: () => void;
@@ -8,6 +9,7 @@ interface EnvelopeProps {
 export const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isRemoved, setIsRemoved] = useState(false);
+  const isHanoonHaani = useIsHanoonHaaniDomain();
 
   /*
    * Keep scrolling locked while envelope/verses
@@ -226,8 +228,8 @@ export const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
                 ===================================================== */}
 
             <motion.img
-              src="/images/envelope/envelope_names.png"
-              alt="Haani & Hanoon"
+              src={isHanoonHaani ? "/images/envelope/envelope_names_hanoon_haani.png" : "/images/envelope/envelope_names.png"}
+              alt={isHanoonHaani ? "Hanoon & Haani" : "Haani & Hanoon"}
               className="
                 absolute
                 left-1/2

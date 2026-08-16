@@ -1,7 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useIsHanoonHaaniDomain } from '../utils/domainConfig';
 
 export const HeroSection: React.FC = () => {
+  const isHanoonHaani = useIsHanoonHaaniDomain();
+
   const scrollToNext = () => {
     const el = document.getElementById('nikkah-section');
     if (el) {
@@ -80,7 +83,7 @@ export const HeroSection: React.FC = () => {
             className="font-vibes font-normal text-[78px] text-[#4D300E] text-center leading-[100%]"
             style={{ letterSpacing: '0%' }}
           >
-            Haani
+            {isHanoonHaani ? 'Hanoon' : 'Haani'}
           </motion.h1>
  
           <motion.span 
@@ -101,7 +104,7 @@ export const HeroSection: React.FC = () => {
             className="font-vibes font-normal text-[78px] text-[#4D300E] text-center leading-[100%]"
             style={{ letterSpacing: '0%' }}
           >
-            Hanoon
+            {isHanoonHaani ? 'Haani' : 'Hanoon'}
           </motion.h1>
         </motion.div>
  

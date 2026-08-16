@@ -23,6 +23,12 @@ export function App() {
    * from the Verses screen.
    */
   useEffect(() => {
+    if (isHanoonHaani) {
+      document.title = 'Hanoon & Haani — Wedding Invitation';
+    } else {
+      document.title = 'Haani & Hanoon — Wedding Invitation';
+    }
+
     if (!versesProceeded) {
       document.body.style.overflow = 'hidden';
     } else {
@@ -32,7 +38,7 @@ export function App() {
     return () => {
       document.body.style.overflow = '';
     };
-  }, [versesProceeded]);
+  }, [versesProceeded, isHanoonHaani]);
 
   return (
     <div

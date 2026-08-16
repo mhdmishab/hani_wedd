@@ -1,7 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useIsHanoonHaaniDomain } from '../utils/domainConfig';
 
 export const InvitationSection: React.FC = () => {
+  const isHanoonHaani = useIsHanoonHaaniDomain();
   return (
     <section 
       id="invitation"
@@ -225,7 +227,7 @@ export const InvitationSection: React.FC = () => {
           <span className="block whitespace-nowrap">make this occasion truly special.</span>
         </motion.p>
 
-        {/* Groom & Bride Details - Exact typography, font family, and margins from screenshot */}
+        {/* Couple Details - Dynamic order based on domain */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -233,34 +235,69 @@ export const InvitationSection: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="flex flex-col items-center w-full mb-10 xs:mb-12"
         >
-          {/* Groom Name */}
-          <h3 
-            className="font-vibes font-normal text-[48px] xs:text-[54px] sm:text-[58px] text-[#4D300E] text-center leading-[1.05] mb-2"
-          >
-            Haani Abdul Salam
-          </h3>
-          
-          {/* Groom Parents */}
-          <p className="font-cormorant font-normal text-[14px] xs:text-[15px] text-[#684818] text-center leading-tight mb-6 xs:mb-7">
-            S/o Mr. Abdussalam SAP and Mrs.Hafsabi C
-          </p>
+          {isHanoonHaani ? (
+            <>
+              {/* Bride Name */}
+              <h3 
+                className="font-vibes font-normal text-[48px] xs:text-[54px] sm:text-[58px] text-[#4D300E] text-center leading-[1.05] mb-2"
+              >
+                Hanoon Fazli
+              </h3>
 
-          {/* Ampersand symbol */}
-          <span className="font-vibes font-normal text-[42px] xs:text-[46px] text-[#4D300E] text-center leading-none mb-4 xs:mb-5">
-            &
-          </span>
+              {/* Bride Parents */}
+              <p className="font-cormorant font-normal text-[14px] xs:text-[15px] text-[#684818] text-center leading-tight mb-6 xs:mb-7">
+                D/o Mr. Anwar Sadath Kp and Mrs. Faiza TK
+              </p>
 
-          {/* Bride Name */}
-          <h3 
-            className="font-vibes font-normal text-[48px] xs:text-[54px] sm:text-[58px] text-[#4D300E] text-center leading-[1.05] mb-2"
-          >
-            Hanoon Fazli
-          </h3>
+              {/* Ampersand symbol */}
+              <span className="font-vibes font-normal text-[42px] xs:text-[46px] text-[#4D300E] text-center leading-none mb-4 xs:mb-5">
+                &
+              </span>
 
-          {/* Bride Parents */}
-          <p className="font-cormorant font-normal text-[14px] xs:text-[15px] text-[#684818] text-center leading-tight">
-            D/o Mr. Anwar Sadath Kp and Mrs. Faiza TK
-          </p>
+              {/* Groom Name */}
+              <h3 
+                className="font-vibes font-normal text-[48px] xs:text-[54px] sm:text-[58px] text-[#4D300E] text-center leading-[1.05] mb-2"
+              >
+                Haani Abdul Salam
+              </h3>
+              
+              {/* Groom Parents */}
+              <p className="font-cormorant font-normal text-[14px] xs:text-[15px] text-[#684818] text-center leading-tight">
+                S/o Mr. Abdussalam SAP and Mrs.Hafsabi C
+              </p>
+            </>
+          ) : (
+            <>
+              {/* Groom Name */}
+              <h3 
+                className="font-vibes font-normal text-[48px] xs:text-[54px] sm:text-[58px] text-[#4D300E] text-center leading-[1.05] mb-2"
+              >
+                Haani Abdul Salam
+              </h3>
+              
+              {/* Groom Parents */}
+              <p className="font-cormorant font-normal text-[14px] xs:text-[15px] text-[#684818] text-center leading-tight mb-6 xs:mb-7">
+                S/o Mr. Abdussalam SAP and Mrs.Hafsabi C
+              </p>
+
+              {/* Ampersand symbol */}
+              <span className="font-vibes font-normal text-[42px] xs:text-[46px] text-[#4D300E] text-center leading-none mb-4 xs:mb-5">
+                &
+              </span>
+
+              {/* Bride Name */}
+              <h3 
+                className="font-vibes font-normal text-[48px] xs:text-[54px] sm:text-[58px] text-[#4D300E] text-center leading-[1.05] mb-2"
+              >
+                Hanoon Fazli
+              </h3>
+
+              {/* Bride Parents */}
+              <p className="font-cormorant font-normal text-[14px] xs:text-[15px] text-[#684818] text-center leading-tight">
+                D/o Mr. Anwar Sadath Kp and Mrs. Faiza TK
+              </p>
+            </>
+          )}
         </motion.div>
 
         {/* Tilted Polaroid Childhood Photo Frame with Corner Tapes */}
@@ -274,7 +311,7 @@ export const InvitationSection: React.FC = () => {
           <div className="w-[460px] xs:w-[480px] aspect-[1/1.12] relative drop-shadow-[0_16px_30px_rgba(0,0,0,0.18)] transition-transform hover:rotate-0 duration-500">
             <img 
               src="/images/invitation/childhood_polaroid.png" 
-              alt="Haani and Hanoon childhood photo" 
+              alt={isHanoonHaani ? "Hanoon and Haani childhood photo" : "Haani and Hanoon childhood photo"} 
               className="w-full h-full object-contain pointer-events-none"
             />
           </div>
