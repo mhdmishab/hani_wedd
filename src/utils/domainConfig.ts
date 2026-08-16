@@ -13,10 +13,8 @@ export function isHanoonHaaniDomain(): boolean {
   return (
     hostname.includes('hanoonhaani') ||
     hostname.includes('hanoon-haani') ||
-    hostname.includes('hanoon') ||
     search.includes('hanoonhaani') ||
-    search.includes('hanoon-haani') ||
-    search.includes('hanoon')
+    search.includes('hanoon-haani')
   );
 }
 
