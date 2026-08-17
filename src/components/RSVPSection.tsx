@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import confetti from 'canvas-confetti';
+import { useIsHanoonHaaniDomain } from '../utils/domainConfig';
 
 export const RSVPSection: React.FC = () => {
+  const isHanoonHaani = useIsHanoonHaaniDomain();
   const [formData, setFormData] = useState({
     name: '',
     guests: '1',
@@ -28,7 +30,8 @@ export const RSVPSection: React.FC = () => {
 
     const attendanceText = formData.attending === 'yes' ? 'Joyfully Accept' : 'Regretfully Decline';
     const messageText = `Hello! I would like to confirm my RSVP:\n\n*Name:* ${formData.name}\n*Number of Guests:* ${formData.guests}\n*Attendance:* ${attendanceText}`;
-    const whatsappUrl = `https://wa.me/916282987729?text=${encodeURIComponent(messageText)}`;
+    const whatsappNumber = isHanoonHaani ? '917736584383' : '916282987729';
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(messageText)}`;
     
     // Open WhatsApp in a new tab
     window.open(whatsappUrl, '_blank');
