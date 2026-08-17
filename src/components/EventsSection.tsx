@@ -5,7 +5,7 @@ import { useIsHanoonHaaniDomain } from '../utils/domainConfig';
 
 export const EventsSection: React.FC = () => {
   const isHanoonHaani = useIsHanoonHaaniDomain();
-  const nikkahMapUrl = "https://maps.app.goo.gl/aRk7TJPapfRihucV7?g_st=aw";
+  const nikkahMapUrl = "https://maps.app.goo.gl/j9ZGf8sgt3pm7knm6";
   const receptionMapUrl = "https://goo.gl/maps/1TyQjvnW9Fn673WK7?g_st=aw";
 
   return (
